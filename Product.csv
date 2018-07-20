@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 pname,cost,is_sold,order_date,quantity
 MANGO Handheld Bag ,1745,FALSE,,1
 T-Shirt,2000,FALSE,,2
@@ -10,3 +11,18 @@ Givenchy Antigona Duffel,6500,FALSE,,1
 Lady Dior Bag.,4300,TRUE,2018-05-27,3
 Wildcraft Blue,4300,TRUE,2018-05-28,1
 Sling Bag,2356,TRUE,2018-05-29,2
+||||||| merged common ancestors
+=======
+pname,cost,is_sold,order_date,quantity
+MANGO Handheld Bag ,1745,FALSE,,1
+T-Shirt,2000,FALSE,,2
+Bag,1000,TRUE,2018-02-27,1
+Watch,54,TRUE,2018-02-28,1
+Bagpack,1240,TRUE,2018-03-01,3
+Nike Shoes,2456,FALSE,,1
+ABC Shoes,850,FALSE,,1
+Givenchy Antigona Duffel,6500,FALSE,,1
+Lady Dior Bag.,4300,TRUE,2018-05-27,3
+Wildcraft Blue,4300,TRUE,2018-05-28,1
+Sling Bag,2356,TRUE,2018-05-29,2
+>>>>>>> 0b38ba2d3573d857d83bafb8a140f66fc502e6b3
