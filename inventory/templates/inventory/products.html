@@ -11,7 +11,22 @@
           {% if all_Products %}
 
                         {% for category in all_Products %}
-                            <div class="well well-sm"><a href = "{% url 'inventory:detail' category.id %}">{{category.pname}}</a></div>
+                            <div class="well well-sm"><a href = "{% url 'inventory:detail' category.id %}">{{category.pname}}</a>
+                                <form action="{% url 'inventory:update' category.pk %}" method="post" style="display: inline;float: right">
+                                {% csrf_token %}
+                                <input type="hidden" name="{{ category.pk }}" value="{{ category.pk }}" />
+                                <button type="submit" class="btn btn-default btn-sm">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </button>
+                            </form>
+                            <form action="{% url 'inventory:delete' category.pk %}" method="post" style="display: inline;float: right">
+                                {% csrf_token %}
+                                <input type="hidden" name="{{ category.pk }}" value="{{ category.pk }}" />
+                                <button type="submit" class="btn btn-default btn-sm">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </form>
+                            </div>
                         {% endfor %}
 
                 {% else %}

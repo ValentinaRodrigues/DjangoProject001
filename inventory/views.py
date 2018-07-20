@@ -2,11 +2,13 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import TemplateView
 from .models import Product
 from datetime import datetime
+from .models import Product
 from .forms import AddForm
+from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 import csv
 
-
+"""
 class AddView(TemplateView):
     template_name = 'inventory/form_add.html'
     def get(self,request):
@@ -19,6 +21,7 @@ class AddView(TemplateView):
             form.save()
             form = AddForm()
         return render(request, self.template_name, {'form': form, 'message': 'Product details Added Successfully'})
+"""
 
 
 def index(request):
@@ -33,11 +36,15 @@ def products(request):
     return render(request, 'inventory/products.html', context)
 
 
-def detail(request, category_id):
-    product_details = get_object_or_404(Product, pk=category_id)
+def detail(request, pk):
+    product_details = get_object_or_404(Product, pk=pk)
     context = {'product_details': product_details}
     return render(request, 'inventory/details.html', context)
 
+"""
+def checkProduct(request, pk):
+    return render(request, 'inventory/product_form.html', {'message': 'Product details Added Successfully'})
+"""
 
 def upload_CSV(request):
     all_Products = Product.objects.all()
@@ -67,7 +74,6 @@ def check(request):
                 create_count += 1
             else:
                 update_count += 1
-        # print(data_dict)
         context = {'error_message': str(create_count) + ' records created.' + str(
             update_count) + ' records update. File Uploaded Successfully'}
     except:
@@ -75,6 +81,19 @@ def check(request):
     return render(request, 'inventory/upload_CSV.html', context)
 
 
+class ProductCreate(CreateView):
+    model = Product
+    fields = [ 'pname', 'cost','is_sold' ,'order_date','quantity' ]
+
+
+class ProductUpdate(UpdateView):
+    model = Product
+    fields = [ 'pname', 'cost','is_sold' ,'order_date','quantity' ]
+
+
+class ProductDelete(DeleteView):
+    model = Product
+    success_url = reverse_lazy( 'inventory:products')
 """
 class ProductCreate(CreateView):
     model = Product
