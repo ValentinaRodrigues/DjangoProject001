@@ -1,0 +1,35 @@
+{% extends 'inventory/base.html' %}
+ {% block title %}Upload CSV{% endblock %}
+{% block material %}
+<div class="jumbotron">
+        <h2 align="center">Upload CSV File</h2>
+  </div>
+
+
+    <div class="container">
+        <div class="well well-lg"  >
+        <h3 style="text-align:center">Read Instructions at the bottom of the page before uploading CSV file</h3>
+        <h4> </h4>
+             <div class="row">
+                 <div class="col-sm-4"></div>
+                 <div class="col-sm-4">
+            <form action="{% url 'inventory:check' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <input type="file" name="csvfile" accept=".csv" required='required'/>
+                    <br></div>
+                <input type="submit" value="Upload CSV"/>
+            </form>
+            {% if error_message %}
+                       <div class="alert alert-success alert-dismissible">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>{{ error_message }} </div>
+                     {% endif %}
+  </div>
+                 <div class="col-sm-4"></div>
+        </div>
+    </div>
+        </div>
+
+
+{% endblock %}

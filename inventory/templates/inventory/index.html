@@ -1,0 +1,38 @@
+{% extends 'inventory/base.html' %}
+{% block material %}
+{% load staticfiles %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-10"></div>
+            <div class="col-md-2"></div>
+        </div>
+  <div class="jumbotron">
+        <h1 align="center">Welcome to The Store </h1>
+        <h2 align="center">Inventory </h2>
+  </div>
+        <br/>
+        <br/>
+        <p align="center">Browse Through Various Products and Check It's Availability</p>
+        <p align="center">Sample Product Images Are Displayed Below</p>
+
+        <div class="row">
+          <div class="col-md-4"><img src= " {% static  'inventory/images/phone.jpg' %} " width="230" height="230" class="img-rounded" alt="Mobile Phones" />
+        </div>
+          <div class="col-md-4"><img src= " {% static  'inventory/images/tshirt.jpg' %} " width="230" height="230" class="img-rounded" alt="T-Shirts"/>
+        </div>
+          <div class="col-md-4"><img src= " {% static  'inventory/images/bag.jpg' %} " width="230" height="230" class="img-rounded" alt="Bag" />
+        </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4"><img src= " {% static  'inventory/images/shoes.jpg' %} " width="230" height="230" class="img-rounded" alt="Shoes"/>
+        </div>
+          <div class="col-md-4"><img src= " {% static  'inventory/images/watch.jpg' %} " width="230" height="230" class="img-rounded" alt="Watch"/>
+        </div>
+          <div class="col-md-4"><img src= " {% static  'inventory/images/bagpack.jpg' %} " width="230" height="230" class="img-rounded" alt="BagPack"/>
+        </div>
+        </div>
+
+    </div>
+{% endblock %}

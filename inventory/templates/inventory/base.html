@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}The Store{% endblock %}</title>
+{% load staticfiles %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type = "text/css" href="{% static 'inventory/style.css' %}" />
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top " >
+    <div class="container-fluid">
+
+        <div class="navbar-header">
+            <a href = "{% url 'inventory:index' %}" class="navbar-brand">The Store</a>
+        </div>
+        <div>
+            <ul  class="nav navbar-nav">
+                <li class="active"><a href = "{% url 'inventory:index' %}">Home</a></li>
+                <li><a href = "{% url 'inventory:products' %}">Products</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href = "{% url 'inventory:add' %}"> <span class="glyphicon glyphicon-plus"></span> Add Product</a></li>
+                <li><a href = "{% url 'inventory:upload_CSV' %}"><span class="glyphicon glyphicon-upload"></span> CSV Upload</a></li>
+                <li><a href = "{% url 'admin:index' %}"><span class="glyphicon glyphicon-user"></span> Django Admin</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+{% block material %}
+{% endblock %}
+</body>
+</html>

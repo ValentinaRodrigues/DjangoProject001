@@ -1,0 +1,21 @@
+{% extends 'inventory/base.html' %}
+{% block title %}Products{% endblock %}
+{% block material %}
+<div class="container">
+  <div class="jumbotron">
+        <h1 align="center">Products </h1>
+        <h3 align="center">Following is the list of  Products:</h3>
+            <h4 align="center">Click the product name to get its details</h4>
+
+  </div>
+          {% if all_Products %}
+
+                        {% for category in all_Products %}
+                            <div class="well well-sm"><a href = "{% url 'inventory:detail' category.id %}">{{category.pname}}</a></div>
+                        {% endfor %}
+
+                {% else %}
+                    <p>Nothing in database</p>
+                {% endif %}
+</div>
+{% endblock %}

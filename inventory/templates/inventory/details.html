@@ -1,0 +1,29 @@
+{% extends 'inventory/base.html' %}
+{% block material %}<div class="container">
+  <div class="jumbotron">
+        <h1 align="center">Product Details </h1>
+  </div>
+    <div class="well well-lg">
+
+<div class="row">
+  <div class="col-sm-2"></div>
+<div class="col-sm-8">
+    <div style="text-align:center">
+    <strong  >{{ product_details }}</strong></div>
+<ul>
+    <li>Product Name: {{ product_details.pname }} </li>
+    <li>Product Cost: Rs. {{ product_details.cost }}</li>
+    {% if product_details.is_sold == True %}
+    <li>Product is currently sold out. Check again later</li>
+    <li>{{ product_details.order_date }}</li>
+    {% else %}
+    <li>Product is available. Hurry up!! what are you waiting for?</li>
+    {% endif %}
+    <li>Quantity of product: {{ product_details.quantity }}</li>
+</ul></div>
+      <div class="col-sm-2"></div>
+</div>
+        </div>
+</div>
+{% endblock %}
+
